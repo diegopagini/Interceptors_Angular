@@ -10,8 +10,13 @@ export class AppComponent {
   title = 'interceptors';
 
   constructor(private usuarioService: UsuariosService) {
-    this.usuarioService.obtenerUsuario().subscribe((resp) => {
-      console.log(resp);
-    });
+    this.usuarioService.obtenerUsuario().subscribe(
+      (resp) => {
+        console.log(resp);
+      },
+      (err) => {
+        console.log('Error en el app componet');
+      }
+    );
   }
 }
